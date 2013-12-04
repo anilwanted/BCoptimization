@@ -1,0 +1,16 @@
+package cs243;
+
+public class SampleInterleaveCSE {
+
+    public static void main(String[] args) {
+        
+        int a = 1;
+        int b = 2;
+        int x = a + b;
+	a = 3;
+	b = 4;
+	int y = a + b;
+        System.out.println(x + y + z + o);
+    }
+
+}
