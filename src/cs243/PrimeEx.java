@@ -24,14 +24,18 @@ public class PrimeEx {
 		int numPrimes = 0; 
 		//Stopwatch s = new Stopwatch();
 		//s.start();
+		//this will find number of primes till that number 
 		for(int i = 2; i < 30000000; i++) {
 			if(isPrime(i)) {
 				numPrimes++;
 			}
 		}
 		//s.stop();
+		//now the count of prime numbers till that number is printed
 		System.out.println(numPrimes + " " + " ");
 		//s.start();
+		//This will find 
+		//this is a another way to find the count of primes till that number and then print them
 		boolean[] primes = getPrimes(30000000);
 		int np = 0;
 		for(boolean b : primes)
@@ -40,10 +44,12 @@ public class PrimeEx {
 		//s.stop();
 		System.out.println(np + " " + " ");
 
+		//this is one way to generate a prime number that is 1024 bits in length
 		System.out.println(new BigInteger(1024, 10, new Random()));
 		
 		final long endTime = System.currentTimeMillis();
 
+	//printing total time taken for all teh crap done in this function and this will be in milli seconds
 	    System.out.println("Total execution time: " + (endTime - startTime));
 	}
 
