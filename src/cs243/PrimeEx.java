@@ -8,6 +8,7 @@ public class PrimeEx {
 	/**
 	 * @param args
 	 */
+	 //this is just calling all teh functions in various ways
 	public static void main(String[] args) {
 	    final long startTime = System.currentTimeMillis();
 	    
@@ -46,12 +47,18 @@ public class PrimeEx {
 	    System.out.println("Total execution time: " + (endTime - startTime));
 	}
 
+	//this is a lame way of finding prime 
 	public static boolean[] getPrimes(int max) {
+		//declare array 
 		boolean[] result = new boolean[max + 1];
+		//initialize the array all but elements at index 0 and 1
 		for(int i = 2; i < result.length; i++)
 			result[i] = true;
+			
 		final double LIMIT = Math.sqrt(max);
+		//loop till the sqrt
 		for(int i = 2; i <= LIMIT; i++) {
+			//if index is true i.e. thinking its a prime and then u find factors then make it false.
 			if(result[i]) {
 				// cross out all multiples;
 				int index = 2 * i;
@@ -65,6 +72,7 @@ public class PrimeEx {
 	}
 
 
+	//Just simple printing and calls the numFactors to see. 
 	public static void printTest(int num, int expectedFactors) {
 		//Stopwatch st = new Stopwatch();
 		//st.start();
@@ -79,12 +87,19 @@ public class PrimeEx {
 		//System.out.println(st.time());
 	}
 
-	// pre: num >= 2
+	// This returning if the number is prime or not
+	// first finding sqrt and then loop till that to 
+	// see if they are factors as of they are then its not a prime.
 	public static boolean isPrime(int num) {
 		assert num >= 2 : "failed precondition. num must be >= 2. num: " + num;
 		final double LIMIT = Math.sqrt(num);
+		//is Prime is set true if num is 2 or if num is odd number
 		boolean isPrime = (num == 2) ? true : num % 2 != 0;
 		int div = 3;
+		//if isPrime is false ( which will happen for all even numbers ) this loop is not entered
+		//all odd numbers greater than 2 will enter this loop and we will be in loop until 
+		//isPrime set to false because we found a factor or till we reach the LIMI i.e. sqrt and that point
+		//we exit loop with truy and return that, if we exit before that we return with false
 		while(div <= LIMIT && isPrime) {
 			isPrime = num % div != 0;
 			div += 2;
@@ -92,7 +107,10 @@ public class PrimeEx {
 		return isPrime;
 	}
 
-	// pre: num >= 2
+	//This function is finding number of factors of the input
+	//If you pass in 36, it will first find sqrt i.e 6 and then
+	//in a loop till 6 will figure if other numbers are a factor or not by
+	// ysing the % operator as if that output is zero it means the number in that loop is a factor
 	public static int numFactors(int num) {
 		assert num >= 2 : "failed precondition. num must be >= 2. num: " + num;
 		int result = 0;
